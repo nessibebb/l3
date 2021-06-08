@@ -1,4 +1,5 @@
 <ol>
+    <li>git clone https://github.com/cheikhrim8/l3.git</li>
     <li>composer update or composer install</li>
     <li>cp .env.example .env</li>
     <li>php artisan key:generate</li>
