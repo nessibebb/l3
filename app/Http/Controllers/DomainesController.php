@@ -34,7 +34,7 @@ class DomainesController extends Controller
 
         return view('domaine', [
             'domaines' => Domaines::all(),
-            
+
         ]);
 
 
