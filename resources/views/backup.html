@@ -1,0 +1,88 @@
+{{-- <script type="text/javascript">
+    function myFunction() {
+        let x = document.getElementById("newForm");
+        if (x.style.display == "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>--}}
+
+
+
+/*
+let table = $('.data-table').DataTable({
+processing: true,
+serverSide: true,
+ajax: "{{ route('domaines.index') }}",
+columns: [
+{data: 'id', name: 'id'},
+{data: 'nom', name: 'nom'},
+{data: 'idParent', name: 'parent'},
+{data: 'action', name: 'action', orderable: false, searchable: false},
+]
+});
+$('#newTutBtn').click(function () {
+$('#saveBtn').val("create-book");
+$('#domaine_id').val('');
+$('#bookForm').trigger("reset");
+$('#bookForm').show();
+});
+
+$('body').on('click', '.editBook', function () {
+let domaine_id = $(this).data('id');
+$.get("{{ route('domaines.index') }}" + '/' + domaine_id + '/edit', function (data) {
+$('#saveBtn').val("edit-book");
+$('#bookForm').show();
+$('#domaine_id').val(data.id);
+$('#nom').val(data.nom);
+$('#parent').val(data.idParent);
+})
+});
+$('#saveBtn').click(function (e) {
+e.preventDefault();
+$(this).html('Save');
+
+$.ajax({
+data: $('#bookForm').serialize(),
+url: "{{ route('domaines.store') }}",
+type: "POST",
+dataType: 'json',
+success: function (data) {
+$('#bookForm').trigger("reset");
+table.draw();
+$('#bookForm').hide();
+
+},
+error: function (data) {
+console.log('Error:', data);
+$('#saveBtn').html('Save Changes');
+$('#bookForm').hide();
+
+}
+});
+});
+
+$('body').on('click', '.deleteBook', function () {
+
+let domaine_id = $(this).data("id");
+confirm("Are You sure want to delete !");
+
+$.ajax({
+type: "DELETE",
+url: "{{ route('domaines.store') }}" + '/' + domaine_id,
+success: function (data) {
+table.draw();
+},
+error: function (data) {
+console.log('Error:', data);
+}
+});
+});
+
+});*/
+
+
+
+

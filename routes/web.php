@@ -14,7 +14,8 @@ use App\Http\Controllers\DomainesController;
 |
 */
 
-//Route::get('/', function () {
-    //return view('welcome');
-//});
+
+Route::view('/', 'welcome');
+
 Route::resource('domaines', DomainesController::class);
+
