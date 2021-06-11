@@ -6,6 +6,7 @@
      display:none;
   }
    #none-btn{ display:none; }
+   #emp-form{ display:none; }
 
 </style>
     <div class="container">
@@ -21,18 +22,19 @@
         </div>
 
         </div>
-        <div class="emp-form" style="display: none">
+        <div id="emp-form" >
           <div class="card">
             <div class="card-header">
                 <h4>emp form</h4>
             </div>
             <div class="card-body">
-                <form id="edit-form">
+                <form class="edit-form">
                     <input type="hidden" id="e_id">
                     <div class="form-group">
                         <label for="e_nom_dom">Domaine</label>
                         <input type="text" name="nom_dom" id="e_nom_dom" class="form-control">
                     </div>
+                     <button type="submit" id="submit-btn" class="btn btn-lg btn-primary">enregistrer</button>
                 </form>
             </div>
         </div>
@@ -289,7 +291,40 @@
                 })
             })
 
+ $('.emp-btn').on('click', function (e) {
+                e.preventDefault()
 
+                let row = $(this).closest('tr')
+                let nom_dom = row.find('td').eq(1).text()
+
+                $('#emp-form').show()
+
+                $('#e_nom_dom').val(nom_dom)
+               
+
+            })
+
+            $('.emp-form').on('submit', function (e) {
+                e.preventDefault()
+
+                let nom_dom = $('#e_nom_dom').val()
+
+                let _url = `ouvrages/emp/${nom_dom}`
+                $.ajax({
+                    url: _url,
+                   type: 'put',
+                    // contentType: 'json',
+                    data: $(".emp-form").serialize(),
+                    success: function (response) {
+                        console.log(response)
+                        window.location.reload()
+                    },
+                    error: function (err) {
+                        console.log(err)
+                        window.location.reload()
+                    }
+                })
+            })
         })
   function myFunction() {
    var x =document.getElementById("add-form");
