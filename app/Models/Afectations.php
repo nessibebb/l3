@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Domaines extends Model
+class Afectations extends Model
 {
-    protected $fillable = [
-  	'nom','idParent'
-  ];
-}
+ protected $fillable = [
+  	'nom_dom','num_etg','num_rayon','num_bloc','statu'
+  ];}

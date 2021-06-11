@@ -2,33 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Domaines;
 use Illuminate\Http\Request;
+use App\Models\Afectations;
 use Illuminate\Support\Facades\DB;
 use DataTables;
-
-class DomainesController extends Controller
+class AffectationsController extends Controller
 {
 
-    public function index()
+ 
+     public function index()
     {
         /* $domaines = Domaines::latest()->get();
+
         if ($request->ajax()) {
             $data = Domaines::latest()->get();
             return DataTables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
+
                            $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook"><span class="glyphicon glyphicon-pencil"></span></a>';
+
                            $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook"><span class="glyphicon glyphicon-trash"></span></a>';
+
                             return $btn;
                     })
                     ->rawColumns(['action'])
                     ->make(true);
         }
+
         return view('domaine',compact('domaines')) ;*/
 
-        return view('domaine', [
-            'domaines' => Domaines::all(),
+        return view('afectations', [
+            'afectations' => Afectations::all(),
 
         ]);
 
@@ -45,16 +50,27 @@ class DomainesController extends Controller
         //
     }
 
-    public function store(Request $request): \Illuminate\Http\JsonResponse
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        Domaines::create([
-            'nom' => $request->nom,
-            'idParent' => $request->idParent
-        ]);
+        
+        Afectations::create([
+                'nom_dom' => $request->nom_dom,
+        'num_etg' => $request->num_etg,
+        'num_rayon' => $request->num_rayon,
+         'num_bloc' => $request->num_bloc,
+        'statu' => $request->statu
 
-        return response()->json([
-            'success' => 'domaine saved successfully.'
-        ]);
+        ]); 
+
+    return response()->json([
+            'success' => 'ouvrage saved successfully.'
+        ]);  
     }
 
     /**
@@ -68,23 +84,23 @@ class DomainesController extends Controller
 
     }
 
-    public function edit(Domaines $domaine)
+    public function edit(Afectations $afectation)
     {
 //          $domaine = Domaines::find($id);
-        return response()->json($domaine);
+        return response()->json($afectation);
     }
 
     public function update(Request $request, $id)
     {
 
-        $v = Domaines::find($id);
+        $v = Afectations::find($id);
 
-        $this->validate($request, [
-            'nom' => ['required']
-        ]);
+        $v->nom_dom = $request->nom_dom;
+        $v->num_etg = $request->num_etg;
+        $v->num_rayon = $request->num_rayon;
+         $v->num_bloc = $request->num_bloc;
+        $v->statu = $request->statu;
 
-        $v->nom = $request->nom;
-        $v->idParent = $request->idParent;
 
         $v->save();
         return response()->json([
@@ -93,11 +109,14 @@ class DomainesController extends Controller
         ]);
     }
 
-    public function destroy(Domaines $domaine)
+    public function destroy(Afectations $afectation)
     {
 
-        $domaine->delete();
+        $bloc->delete();
 
-        return redirect()->back()->with('success', 'domaine was deleted');
+        return redirect()->back()->with('success', 'empouv was deleted');
     }
 }
+
+
+

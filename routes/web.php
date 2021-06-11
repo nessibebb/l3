@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DomainesController;
+use App\Http\Controllers\EtageresController;
+use App\Http\Controllers\OuvragesController;
+use App\Http\Controllers\AffectationsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +22,12 @@ use App\Http\Controllers\DomainesController;
 Route::view('/', 'welcome');
 
 Route::resource('domaines', DomainesController::class);
+Route::resource('etageres', EtageresController::class);
+Route::resource('ouvrages', OuvragesController::class);
+Route::resource('afectations', AffectationsController::class);
+
+Route::post('ouvrages/emp/${nom_dom}', 'OuvragesController@emp');
+
+
+
 
