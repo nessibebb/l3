@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="u_num_etager">num etager</label>
-                        <input type="text" name="num_etager" id="u_num_etager" class="form-control">
+                        <input type="text" name="num_etg" id="u_num_etager" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="u_num_bloc">num bloc</label>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="a_num_etager">num etager</label>
-                        <input type="text" name="num_etager" id="a_num_etager" class="form-control">
+                        <input type="text" name="num_etg" id="a_num_etager" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="a_num_rayon">num rayon</label>
@@ -103,6 +103,8 @@
                 <th>num rayon</th>
                 <th>num bloc</th>
                  <th>status</th>
+                                  <th>emp</th>
+
                 <th>Action</th>
             </tr>
             </thead>
@@ -114,7 +116,10 @@
                     <td>{{$afectation->num_etg}}</td>
                      <td>{{$afectation->num_rayon}}</td>
                     <td>{{$afectation->num_bloc}}</td>
+
                     <td>{{$afectation->statu}}</td>
+                                        <td>{{$afectation->Emp}}</td>
+
 
                     <td>
                         <button class="edit-btn btn btn-lg btn-primary">
@@ -268,3 +273,4 @@
 
 
     </script>
+    @endsection

@@ -30,7 +30,7 @@
                 </li>
               
                 <li class="nav-item active">
-                    <a class="nav-link " href="./">Exemplaire</a>
+                    <a class="nav-link " href="./exemplaires">Exemplaire</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link " href="./afectations">Emplacement</a>

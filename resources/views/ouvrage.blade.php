@@ -17,7 +17,9 @@
                   <span class="glyphicon glyphicon-plus-sign" > </span> <b>ajouter</b></button>
         <button id="none-btn" onclick="myFunction()" type="button"   class=" btn btn-lg btn-primary">
                   <span class="glyphicon glyphicon-minus-sign" > </span> <b>cacher</b></button>
+        <a href="{{ url('dynamic_pdfo/pdfO') }}" class="btn btn-danger">Convert into PDF</a>
  <div>
+    
             &nbsp
         </div>
 

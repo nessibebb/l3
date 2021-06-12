@@ -12,39 +12,15 @@ class AffectationsController extends Controller
  
      public function index()
     {
-        /* $domaines = Domaines::latest()->get();
-
-        if ($request->ajax()) {
-            $data = Domaines::latest()->get();
-            return DataTables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook"><span class="glyphicon glyphicon-pencil"></span></a>';
-
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook"><span class="glyphicon glyphicon-trash"></span></a>';
-
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
-        }
-
-        return view('domaine',compact('domaines')) ;*/
-
-        return view('afectations', [
-            'afectations' => Afectations::all(),
-
-        ]);
+        
+         $afectations = Afectations::select("*", DB::raw("CONCAT('E',afectations.num_etg,'-',afectations.num_rayon,'-',afectations.num_bloc) as Emp"))
+        ->get();
+  
+    return view('afectation', compact('afectations'));
 
 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     
     public function create()
     {
         //
@@ -58,14 +34,15 @@ class AffectationsController extends Controller
      */
     public function store(Request $request)
     {
-        
+         $aff = CONCAT('E',$request->num_etg,'-',$request->num_rayon,'-',$request->num_bloc);
+
         Afectations::create([
                 'nom_dom' => $request->nom_dom,
         'num_etg' => $request->num_etg,
         'num_rayon' => $request->num_rayon,
          'num_bloc' => $request->num_bloc,
-        'statu' => $request->statu
-
+        'statu' => $request->statu,
+     'Emp'=>  $aff
         ]); 
 
     return response()->json([
