@@ -17,6 +17,7 @@
                   <span class="glyphicon glyphicon-plus" > </span> <b>ajouter</b></button>
         <button id="none-btn" onclick="myFunction()" type="button"   class=" btn btn-lg btn-primary">
                   <span class="glyphicon glyphicon-minus" > </span> <b>cacher</b></button>
+                  <a href="{{ url('dynamic_pdf/pdf') }}" class="btn btn-danger">Convert into PDF</a>
 
 </div>
         <div>
@@ -46,17 +47,17 @@
         </div>
 
         <div id="add-form" >
-                <div class="card" >
+                <div class="card" style="width: 45rem;" >
             <div class="card-header">
                 <h4>add form</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body" >
                 <form class ="add-form">
-                           <div class="form-group">
+                           <div class="form-group" style="width: 35rem;">
                                <label for="nom">Nom</label>
                                <input type="text" name="nom" id="nom" class="form-control">
                            </div>
-                           <div class="form-group">
+                           <div class="form-group" style="width: 35rem;>
                                <label for="idParent">IdParent</label>
 <select name="idParent" id="idParent"  class="form-control" placeholder="Enter parent">
              @foreach($domaines as $domaine)

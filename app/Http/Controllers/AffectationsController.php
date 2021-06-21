@@ -34,7 +34,6 @@ class AffectationsController extends Controller
      */
     public function store(Request $request)
     {
-         $aff = CONCAT('E',$request->num_etg,'-',$request->num_rayon,'-',$request->num_bloc);
 
         Afectations::create([
                 'nom_dom' => $request->nom_dom,
@@ -42,7 +41,7 @@ class AffectationsController extends Controller
         'num_rayon' => $request->num_rayon,
          'num_bloc' => $request->num_bloc,
         'statu' => $request->statu,
-     'Emp'=>  $aff
+        'nb_etiq' => $request->nb_etiq
         ]); 
 
     return response()->json([
@@ -77,6 +76,8 @@ class AffectationsController extends Controller
         $v->num_rayon = $request->num_rayon;
          $v->num_bloc = $request->num_bloc;
         $v->statu = $request->statu;
+        $v->nb_etiq = $request->nb_etiq;
+
 
 
         $v->save();
@@ -89,7 +90,7 @@ class AffectationsController extends Controller
     public function destroy(Afectations $afectation)
     {
 
-        $bloc->delete();
+        $afectation->delete();
 
         return redirect()->back()->with('success', 'empouv was deleted');
     }

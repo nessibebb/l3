@@ -177,6 +177,7 @@ return [
 
         Yajra\DataTables\DataTablesServiceProvider::class,
          Barryvdh\DomPDF\ServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
 
     ],
 

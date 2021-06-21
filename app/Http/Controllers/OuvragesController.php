@@ -27,8 +27,9 @@ class OuvragesController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function create()
-    {
 
+    {
+       
     }
 
     public function store(Request $request): \Illuminate\Http\JsonResponse
@@ -52,7 +53,12 @@ class OuvragesController extends Controller
    }
 
       else{
-
+ $nm=$request->nom_dom;
+        $l= DB::table("afectations")->select(DB::raw(" distinct CONCAT('E',afectations.num_etager,' -',afectations.num_rayon,'-',afectations.num_bloc) as emp"))
+           ->join('ouvrages','ouvrages.nom_dom','=','afectations.nom_dom')
+            ->where('statu',1 ,'afectations.nom_dom','=','$nm') 
+          ->get()  ;
+           $emp=$l;
 
         Ouvrages::create([
         	      'nom_dom'=> $request->nom_dom,
@@ -63,7 +69,7 @@ class OuvragesController extends Controller
                 'nbrpage' => $request->nbrpage,
                 'titre'=> $request->titre,
                  'annee_universitaire' => $request->annee_universitaire,
-
+                 
         ]); 
 
     return response()->json([

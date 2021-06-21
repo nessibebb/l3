@@ -7,8 +7,9 @@ use DB;
 use PDF;
 class DynamicPDFController extends Controller
 {
-   function index()
-    {
+  function index(){
+
+
      $domaine_data = $this->get_domaine_data();
      return view('dynamic_pdf')->with('domaine_data', $domaine_data);
     }
@@ -16,7 +17,7 @@ class DynamicPDFController extends Controller
     function get_domaine_data()
     {
      $domaine_data = DB::table('domaines')
-         ->limit(10)
+         ->limit(24)
          ->get();
      return $domaine_data;
     }
@@ -32,28 +33,235 @@ class DynamicPDFController extends Controller
     {
      $domaine_data = $this->get_domaine_data();
      $output = '
-     <h3 align="center">domaine data</h3>
-     <table width="100%" style="border-collapse: collapse; border: 0px;">
-      <tr>
-       <th style="border: 1px solid; padding:12px;" width="15%">ID</th>
-       <th style="border: 1px solid; padding:12px;" width="20%">Nom</th>
-       <th style="border: 1px solid; padding:12px;" width="30%">idParent</th>
-    
-   </tr>
-     ';  
+     <h3 align="center">domaine Data</h3>
+     <table width="100%" height ="100%" style="border-collapse: collapse; border: 1px;">
+      
+     <tr>';  
      foreach($domaine_data as $domaine)
-     {
+     { if( $domaine->id ==3){
       $output .= '
-      <tr>
-       <td style="border: 1px solid; padding:12px;">'.$domaine->id.'</td>
-       <td style="border: 1px solid; padding:12px;">'.$domaine->nom.'</td>
-       <td style="border: 1px solid; padding:12px;">'.$domaine->idParent.'</td>
+     
+      
+       
+       <td height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==4){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;  ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==5) {
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==6) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
       
       
-      </tr>
-      ';
-     }
-     $output .= '</table>';
+     $output .= '</tr><tr >';
+     foreach($domaine_data as $domaine)
+     { if( $domaine->id ==7){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==8){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==9) {
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==10) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      
+      $output .= '</tr><tr >';
+     foreach($domaine_data as $domaine)
+     { if( $domaine->id ==11){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==12){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==13) {
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==14) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      $output .= '</tr><tr>';
+     foreach($domaine_data as $domaine)
+     { if( $domaine->id ==15){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==16){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==17) {
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==18) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      $output .= '</tr><tr>';
+     foreach($domaine_data as $domaine)
+     { if( $domaine->id ==19){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==20){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==21) {
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==22) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+       $output .= '</tr><tr>';
+     foreach($domaine_data as $domaine)
+     { if( $domaine->id ==23){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;
+     }  if( $domaine->id ==24){
+      $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid;  ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      if ($domaine->id ==25) {
+        $output .= '
+     
+      
+       
+       <td height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;} if ($domaine->id ==26) 
+        $output .= '
+     
+      
+       
+       <td  height ="100" style="border: 1px solid; ">'.$domaine->nom.'</td>
+       
+      
+      ' ;}
+      $output .= '</tr></table>';
      return $output;
     }
 }

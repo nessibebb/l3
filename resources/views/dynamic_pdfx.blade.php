@@ -40,7 +40,7 @@
      @foreach($exemplaire_data as $exemplaire)
       <tr>
        <td>{{ $exemplaire->date_entree}}</td>
-       <td>{{ $exemplaire->nid_ouvrage}}</td>
+       <td>{{ $exemplaire->id_ouvrage}}</td>
       
       </tr>
      @endforeach

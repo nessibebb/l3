@@ -154,6 +154,8 @@
                 <th>nombre page</th>
                 <th>Titre</th>
                 <th>annee universitaire</th>
+                <th>Emplacement</th>               
+
                 <th>Action</th>
             </tr>
             </thead>
@@ -169,6 +171,7 @@
                     <td>{{$ouvrage->nbrpage}}</td>
                     <td>{{$ouvrage->titre}}</td>
                     <td>{{$ouvrage->annee_universitaire}}</td>
+                    <td>{{$ouvrage->emplacement}}</td>
 
                     <td>
                         <button class="emp-btn btn btn-lg btn-primary" >

@@ -30,18 +30,18 @@
     <table class="table table-striped table-bordered">
      <thead>
       <tr>
-       <th>ID</th>
-       <th>Nom</th>
-       <th>idParent</th>
+       <th>codeE</th>
+       <th>num_rayon</th>
+       <th>num_bloc</th>
        
       </tr>
      </thead>
      <tbody>
-     @foreach($domaine_data as $domaine)
+     @foreach($etagere_data as $etagere)
       <tr>
-       <td>{{ $domaine->id }}</td>
-       <td>{{ $domaine->nom }}</td>
-       <td>{{ $domaine->idParent }}</td>
+       <td>{{ $etagere->codeE }}</td>
+       <td>{{ $etagere->num_rayon }}</td>
+       <td>{{ $etagere->num_bloc }}</td>
        
       </tr>
      @endforeach
