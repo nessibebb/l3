@@ -29,7 +29,7 @@ use App\Http\Controllers\EtageresExController;
 
 
 Route::view('/', 'welcome');
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::resource('domaines', DomainesController::class);
 Route::resource('etageres', EtageresController::class);
 Route::resource('ouvrages', OuvragesController::class);
